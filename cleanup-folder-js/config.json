@@ -1,0 +1,7 @@
+{
+    "moveNonDetectedFiles?" : false,
+    "folder" : {
+        "pictures" : ["jpg", "jpeg", "png"],
+        "text" : ["txt", "docx", "doc", "rtf"]
+    }
+}
