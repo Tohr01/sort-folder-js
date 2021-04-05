@@ -54,7 +54,7 @@ function moveFiles(targetFldr) {
                 }
             }
             if (i === files.length - 1) {
-                console.log('\x1b[34m%s\x1b[34m', 'Operation finished')
+                console.log('\x1b[34m%s\x1b[0m', 'Operation finished')
             }
         }
     })
