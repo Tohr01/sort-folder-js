@@ -1,5 +1,5 @@
 # OS
-1. macOS / Linux / Unix
+1. macOS (Tested) / Linux / Unix
 2. Windows
 
 # Requirements

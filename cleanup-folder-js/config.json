@@ -1,7 +1,14 @@
 {
-    "moveNonDetectedFiles?" : false,
-    "folder" : {
-        "pictures" : ["jpg", "jpeg", "png"],
-        "text" : ["txt", "docx", "doc", "rtf"]
+    "moveNonDetectedFiles?": false,
+    "folder": {
+        "_pictures": ["jpg", "jpeg", "png", "ai", "bmp", "gif", "ico", "icns", "ps", "psd", "svg", "tif", "tiff"],
+        "_text": ["txt", "docx", "doc", "rtf"],
+        "_audio": ["aif", "cda", "mid", "midi", "mp3", "mpa", "ogg", "wav", "wma", "wpl"],
+        "_video": ["mov", "mp4", "mkv", "mpg", "mpeg"],
+        "_compressed": ["7z", "arj", "deb", "pkg", "rar", "rpm", "z", "zip"],
+        "_disk-and-media": ["bin", "dmg", "iso", "toast", "vcd"],
+        "_data-and-database": ["csv", "dat", "dbf", "db", "log", "sav", "mdb", "sql", "tar", "xml"],
+        "_font": ["fnt", "fon", "otf", "ttf"],
+        "_pdfs": ["pdf"]
     }
 }

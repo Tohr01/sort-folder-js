@@ -20,7 +20,7 @@ if (args.length === 0) {
                 if (fs.existsSync(path.join(fldrPath, attr))) {
                     console.log('\x1b[35m%s\x1b[0m', `Folder '${attr}' exists at: '${fldrPath}'`)
                 } else {
-                    fs.mkdir(path.join(fldrPath, attr), (err, path) => {
+                    fs.mkdir(path.join(fldrPath, attr), () => {
                         console.log('\x1b[32m%s\x1b[0m', `Folder '${attr}' created at: '${fldrPath}'`);
                     });
                 }
@@ -44,7 +44,7 @@ function moveFiles(targetFldr) {
         for (var i = 0; i < files.length; i++) {
             const filePath = path.join(targetFldr, files[i]);
             if (fs.lstatSync(filePath).isFile()) {
-                const suffix = path.extname(files[i]).slice('1');
+                const suffix = path.extname(files[i]).slice('1').toLowerCase();
                 for (var a = 0; a < Object.keys(config.folder).length; a++) {
                     if (config.folder[Object.keys(config.folder)[a]].includes(suffix)) {
                         console.log(filePath);
