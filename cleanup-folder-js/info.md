@@ -9,5 +9,5 @@
 # Execution
 
 ```
-node cleanup-folder.js
+node cleanup-folder.js [Path to directory]
 ```
