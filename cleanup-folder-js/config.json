@@ -1,5 +1,4 @@
 {
-    "moveNonDetectedFiles?": false,
     "folder": {
         "_pictures": ["jpg", "jpeg", "png", "ai", "bmp", "gif", "ico", "icns", "ps", "psd", "svg", "tif", "tiff"],
         "_text": ["txt", "docx", "doc", "rtf"],
