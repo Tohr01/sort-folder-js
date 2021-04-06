@@ -17,4 +17,4 @@ node cleanup-folder.js [Path to directory]
 
 # Config
 1. Open config.json
-2. In the "folder" object add a key (e.g. test) and the fitting file extentions (e.g. [".test"]) -> So 
+2. In the "folder" object add a key (e.g. test) and the fitting file extentions (e.g. ["jpg"]) 
