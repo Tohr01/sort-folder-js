@@ -1,3 +1,6 @@
+# Info
+Sorts files with suffixes (declared in config.json) to declared folders
+
 # OS
 1. macOS (Tested) / Linux / Unix
 2. Windows
@@ -11,3 +14,7 @@
 ```
 node cleanup-folder.js [Path to directory]
 ```
+
+# Config
+1. Open config.json
+2. In the "folder" object add a key (e.g. test) and the fitting file extentions (e.g. [".test"]) -> So 
