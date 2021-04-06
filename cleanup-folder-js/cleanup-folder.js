@@ -18,14 +18,14 @@ if (args.length === 0) {
             for (var i = 0; i < configFldr.length; i++) {
                 const attr = configFldr[i];
                 if (fs.existsSync(path.join(fldrPath, attr))) {
-                    console.log('\x1b[35m%s\x1b[0m', `Folder '${attr}' exists at: '${fldrPath}'`)
+                    console.log('\x1b[35m%s\x1b[0m', `Folder '${attr}' exists at: '${fldrPath}'`);
                 } else {
                     fs.mkdir(path.join(fldrPath, attr), () => {
                         console.log('\x1b[32m%s\x1b[0m', `Folder '${attr}' created at: '${fldrPath}'`);
                     });
                 }
                 if (i === configFldr.length - 1) {
-                    moveFiles(fldrPath)
+                    moveFiles(fldrPath);
                 }
             }
         }
@@ -49,13 +49,13 @@ function moveFiles(targetFldr) {
                     if (config.folder[Object.keys(config.folder)[a]].includes(suffix)) {
                         console.log(filePath);
                         console.log(path.join(targetFldr, Object.keys(config.folder)[a]));
-                        fs.renameSync(filePath, path.join(targetFldr, Object.keys(config.folder)[a], files[i]))
+                        fs.renameSync(filePath, path.join(targetFldr, Object.keys(config.folder)[a], files[i]));
                     }
                 }
             }
             if (i === files.length - 1) {
-                console.log('\x1b[34m%s\x1b[0m', 'Operation finished')
+                console.log('\x1b[34m%s\x1b[0m', 'Operation finished');
             }
         }
-    })
+    });
 }
