@@ -8,6 +8,7 @@
         "_disk-and-media": ["bin", "dmg", "iso", "toast", "vcd"],
         "_data-and-database": ["csv", "dat", "dbf", "db", "log", "sav", "mdb", "sql", "tar", "xml"],
         "_font": ["fnt", "fon", "otf", "ttf"],
-        "_pdfs": ["pdf"]
+        "_pdfs": ["pdf"],
+        "_jars": ["jar"]
     }
 }

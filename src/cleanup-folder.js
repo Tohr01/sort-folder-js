@@ -47,7 +47,6 @@ function moveFiles(targetFldr) {
                 const suffix = path.extname(files[i]).slice('1').toLowerCase();
                 for (var a = 0; a < Object.keys(config.folder).length; a++) {
                     if (config.folder[Object.keys(config.folder)[a]].includes(suffix)) {
-                        console.log(filePath);
                         console.log(path.join(targetFldr, Object.keys(config.folder)[a]));
                         fs.renameSync(filePath, path.join(targetFldr, Object.keys(config.folder)[a], files[i]));
                     }
