@@ -1,4 +1,9 @@
 {
+    "moveUndetectedFilesToFolder": {
+        "enable": true,
+        "nameOfFolder": "__others",
+        "blacklist": ["ds_store"]
+    },
     "folder": {
         "_pictures": ["jpg", "jpeg", "png", "ai", "bmp", "gif", "ico", "icns", "ps", "psd", "svg", "tif", "tiff"],
         "_text": ["txt", "docx", "doc", "rtf"],

@@ -2,17 +2,23 @@
 Sorts files with suffixes (declared in config.json) to declared folders
 
 # OS
-1. macOS (Tested) / Linux / Unix
-2. Windows
+1. macOS (Tested)
+2. Linux
 
 # Requirements
 
 1. Node-js
-2. cleanup-folder.js has to be in the same folder as the config.json and package.json file
-# Execution
+2. sort-folder.js has to be in the same folder as the config.json and package.json file
 
+# Execution
+1. Fire up terminal
+2. Change directory to ~/sort-folder-js/src
 ```
-node cleanup-folder.js [Path to directory]
+cd [Path to directory src]
+```
+3. Execute script
+```
+node sort-folder.js [Path to directory]
 ```
 
 # Config
