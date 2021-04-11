@@ -1,14 +1,17 @@
-const config = require('./config.json');
 const {
-    existsSync,
+    folder,
+    moveUndetectedFilesToFolder
+} = require('./config.json');
+const {
     lstatSync,
     readdir,
     mkdir,
-    renameSync
+    renameSync,
+    existsSync
 } = require('fs');
 const {
-    join,
-    extname
+    extname,
+    join
 } = require('path');
 
 var folderList = new Array();
@@ -21,12 +24,9 @@ if (args.length === 0) {
     var fldrPath = args[0];
 
     if (existsSync(fldrPath)) {
-        if (!lstatSync(fldrPath).isDirectory()) {
-            console.log('Path is not a directory.');
-            process.exitCode = 1;
-        } else {
+        if (lstatSync(fldrPath).isDirectory()) {
             initOthersFolder();
-            const configFldr = Object.keys(config.folder);
+            const configFldr = Object.keys(folder);
             for (var i = 0; i < configFldr.length; i++) {
                 const attr = configFldr[i];
                 folderList.push(attr);
@@ -41,6 +41,9 @@ if (args.length === 0) {
                     moveFiles(fldrPath);
                 }
             }
+        } else {
+            console.log('Path is not a directory.');
+            process.exitCode = 1;
         }
     } else {
         console.log('Path does not exist.');
@@ -58,25 +61,23 @@ function moveFiles(targetFldr) {
             const filePath = join(targetFldr, files[i])
             if (lstatSync(filePath).isFile()) {
                 const suffix = extname(files[i]).slice('1').toLowerCase();
-                for (var a = 0; a < Object.keys(config.folder).length; a++) {
-                    if (config.folder[Object.keys(config.folder)[a]].includes(suffix)) {
-                        renameSync(filePath, join(targetFldr, Object.keys(config.folder)[a], files[i]));
+                for (var a = 0; a < Object.keys(folder).length; a++) {
+                    if (folder[Object.keys(folder)[a]].includes(suffix)) {
+                        renameSync(filePath, join(targetFldr, Object.keys(folder)[a], files[i]));
                         break;
                     } else {
-                        if (a === Object.keys(config.folder).length - 1) {
-                            if (config.moveUndetectedFilesToFolder.enable && !config.moveUndetectedFilesToFolder.blacklist.includes(suffix)) {
-                                renameSync(filePath, join(targetFldr, config.moveUndetectedFilesToFolder.nameOfFolder, files[i]));
+                        if (a === Object.keys(folder).length - 1) {
+                            if (moveUndetectedFilesToFolder.enable && !moveUndetectedFilesToFolder.blacklist.includes(suffix)) {
+                                renameSync(filePath, join(targetFldr, moveUndetectedFilesToFolder.nameOfFolder, files[i]));
                             }
                         }
                     }
                 }
             } else if (lstatSync(filePath).isDirectory()) {
-                if (config.moveUndetectedFilesToFolder.enable) {
-                    if (config.moveUndetectedFilesToFolder.moveFolders) {
-                        if (!(folderList.includes(files[i]))) {
-                            if (!(files[i] === config.moveUndetectedFilesToFolder.nameOfFolder)) {
-                                renameSync(filePath, join(targetFldr, config.moveUndetectedFilesToFolder.nameOfFolder, files[i]));
-                            }
+                if (moveUndetectedFilesToFolder.enable && moveUndetectedFilesToFolder.moveFolders) {
+                    if (!(folderList.includes(files[i]))) {
+                        if (!(files[i] === moveUndetectedFilesToFolder.nameOfFolder)) {
+                            renameSync(filePath, join(targetFldr, moveUndetectedFilesToFolder.nameOfFolder, files[i]));
                         }
                     }
                 }
@@ -89,8 +90,8 @@ function moveFiles(targetFldr) {
 }
 
 function initOthersFolder() {
-    const undetectedFldrName = config.moveUndetectedFilesToFolder.nameOfFolder;
-    if (config.moveUndetectedFilesToFolder.enable) {
+    const undetectedFldrName = moveUndetectedFilesToFolder.nameOfFolder;
+    if (moveUndetectedFilesToFolder.enable) {
         if (existsSync(join(fldrPath, undetectedFldrName))) {
             console.log('\x1b[35m%s\x1b[0m', `Folder '${undetectedFldrName}' exists at: '${fldrPath}'`);
         } else {
