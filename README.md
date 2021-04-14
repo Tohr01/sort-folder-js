@@ -3,6 +3,7 @@ Sorts files with suffixes (declared in config.json) to declared folders
 
 # OS
 1. macOS (Tested)
+2. Windows (Tested)
 2. Linux
 
 # Requirements
@@ -11,7 +12,7 @@ Sorts files with suffixes (declared in config.json) to declared folders
 2. sort-folder.js has to be in the same folder as the config.json and package.json file
 
 # Execution
-1. Fire up terminal
+1. Fire up terminal or cmd
 2. Change directory to ~/sort-folder-js/src
 ```
 cd [Path to directory src]
